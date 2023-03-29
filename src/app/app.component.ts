@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Socket.IO Angular Chat';
+  title = 'Dev Chat';
 }

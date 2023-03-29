@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 const AUTH_API = 'https://socket-angular-chat-server.onrender.com/api/auth/';
+// const AUTH_API = 'http://localhost:3000/api/auth/';
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -19,8 +20,8 @@ export class AuthService {
   private readonly TOKEN_COOKIE = 'socket-angular-chat-token';
 
   constructor(
-    private _http: HttpClient, 
-    private _cookieService: CookieService, 
+    private _http: HttpClient,
+    private _cookieService: CookieService,
     private _jwtHelper: JwtHelperService) { }
 
   login(login: LoginData): Observable<HttpResponse<LoginResponse>> {
@@ -35,11 +36,10 @@ export class AuthService {
           localStorage.setItem("access_token", authToken!);
           localStorage.setItem('username', response.body!.username);
         }
-        
       })
     );
   }
-  
+
   getToken(): string | null {
     return this._cookieService.get(this.TOKEN_COOKIE);
   }

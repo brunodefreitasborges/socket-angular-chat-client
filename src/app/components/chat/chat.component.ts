@@ -1,5 +1,5 @@
 import { AfterViewChecked, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { io } from 'socket.io-client';
 
 @Component({
@@ -10,6 +10,7 @@ import { io } from 'socket.io-client';
 export class ChatComponent implements AfterViewChecked {
 
   socket = io('https://socket-angular-chat-server.onrender.com');
+  // socket = io('http://localhost:3000');
   messages: Message[] = [];
   username!: string;
 
@@ -24,7 +25,7 @@ export class ChatComponent implements AfterViewChecked {
   ngOnInit(): void {
 
     this.scrollToBottom();
-    
+
     this.username = localStorage.getItem('username') || '';
 
     this.socket.on('initial_messages', (data: Message[]) => {
@@ -41,8 +42,11 @@ export class ChatComponent implements AfterViewChecked {
   }
 
   submit() {
-    this.socket.emit('new_message', {username: this.username, message: this.form.value.message});
-    this.form.controls.message.setValue('');
+    if(this.form.controls.message.value!.length > 0) {
+      this.socket.emit('new_message', {username: this.username, message: this.form.value.message});
+      this.form.controls.message.setValue('');
+    }
+
   }
 
   onKeydown(event: any) {

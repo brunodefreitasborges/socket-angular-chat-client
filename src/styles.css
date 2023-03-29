@@ -10,14 +10,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 ::-webkit-scrollbar {
     width: 4px;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #673AB7;
     border-radius: 4px;
   }
-  
+
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #673AB7;
   }
+
+  .mat-mdc-snack-bar-container {
+    --mdc-snackbar-container-color: #673AB7;
+  }
+
+

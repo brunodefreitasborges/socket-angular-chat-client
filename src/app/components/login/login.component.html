@@ -1,0 +1,17 @@
+<section class="w-[80vw] sm:w-[60vw] lg:w-[30vw] pt-28 flex flex-col justify-center items-center">
+    <form [formGroup]="form">
+      <mat-form-field class="w-full" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="text" autocomplete="nope" formControlName="email" matInput>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+          <mat-error *ngIf="form.controls.email.invalid">Deve ser um email válido</mat-error>
+      </mat-form-field>
+      <mat-form-field class="mt-4 w-full" appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input (focus)="changeType()" [type]="passwordHide" autocomplete="nope" formControlName="password" matInput>
+          <mat-icon matSuffix>vpn_key</mat-icon>
+          <mat-error *ngIf="form.controls.password.invalid">Senha deve conter no mínimo 6 caracteres</mat-error>
+      </mat-form-field>
+    </form>
+    <button [disabled]="form.invalid" mat-raised-button color="primary" class="w-full mt-6" (click)="submit()">Enviar</button>
+</section>

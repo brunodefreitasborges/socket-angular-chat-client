@@ -6,9 +6,10 @@
     </mat-card>
   </div>
 </section>
-<mat-form-field [formGroup]="form" class="mt-4 w-[50vw]" appearance="outline">
-  <mat-label>Escreva sua mensagem</mat-label>
-  <input (keydown)="onKeydown($event)" formControlName="message" matInput>
-  <mat-icon (click)="submit()" matSuffix>send</mat-icon>
-</mat-form-field>
-  
+<div class="flex items-center gap-4">
+  <mat-form-field [formGroup]="form" class="mt-4 w-[50vw]" appearance="outline">
+    <mat-label>Escreva sua mensagem</mat-label>
+    <input (keydown)="onKeydown($event)" formControlName="message" matInput>
+  </mat-form-field>
+  <button [disabled]="form.controls.message.invalid" class="-mt-2" color="primary" mat-icon-button (click)="submit()"><mat-icon>send</mat-icon></button>
+</div>
