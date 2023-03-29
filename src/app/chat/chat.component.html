@@ -1,0 +1,14 @@
+<section #scrollMe class="mt-8 w-[60vw] h-[70vh] overflow-y-scroll flex flex-col gap-3 py-4">
+  <div class="w-full" *ngFor="let message of messages; last as isLast">
+    <mat-card class="p-4 mx-4 w-1/2 break-words" [ngClass]="message.username == username ? 'float-left' : 'float-right'" >
+      <span class="font-mono text-xs">@{{ message.username }}</span>
+      <p class="m-0 font-mono text-base">{{ message.message }}</p>
+    </mat-card>
+  </div>
+</section>
+<mat-form-field [formGroup]="form" class="mt-4 w-[50vw]" appearance="outline">
+  <mat-label>Escreva sua mensagem</mat-label>
+  <input (keydown)="onKeydown($event)" formControlName="message" matInput>
+  <mat-icon (click)="submit()" matSuffix>send</mat-icon>
+</mat-form-field>
+  
