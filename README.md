@@ -10,7 +10,7 @@ Este é um projeto de um chat em tempo real desenvolvido com Angular 15, Angular
 ## Instalação
 Clone este repositório para sua máquina:
 ```
-git clone https://github.com/<seu-nome-de-usuario>/socket-angular-chat-client.git
+git clone https://github.com/brunodefreitasborges/socket-angular-chat-client.git
 ```
 
 ## Instale as dependências do projeto:
