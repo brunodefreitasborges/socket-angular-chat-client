@@ -4,10 +4,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable, tap } from 'rxjs';
 import { LoginData, LoginResponse } from './login';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { environment } from 'environments/environment';
 
 
-const AUTH_API = environment.authApiUrl;
+const AUTH_API = 'https://socket-angular-chat-server.onrender.com/api/auth/';
+// const AUTH_API = 'http://localhost:3000/api/auth/';
 
 const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
