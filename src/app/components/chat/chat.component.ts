@@ -1,6 +1,7 @@
 import { AfterViewChecked, Component, ElementRef, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { io } from 'socket.io-client';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-chat',
@@ -9,8 +10,8 @@ import { io } from 'socket.io-client';
 })
 export class ChatComponent implements AfterViewChecked {
 
-  socket = io('https://socket-angular-chat-server.onrender.com');
-  // socket = io('http://localhost:3000');
+  socket = io(environment.socketApiUrl!);
+
   messages: Message[] = [];
   username!: string;
 
